@@ -1,4 +1,4 @@
-# EGH450 - Advanced Uncrewed Aircraft Systems
+# EGH450 - Advanced Uncrewed Aircraft Systems (High Distinction)
 
 <p align="center">
   <img 
