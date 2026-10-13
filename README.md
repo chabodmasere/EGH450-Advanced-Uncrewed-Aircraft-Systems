@@ -1,264 +1,118 @@
-# EGH450 - Advanced Uncrewed Aircraft Systems (High Distinction)
+# EGH450 Advanced Uncrewed Aircraft Systems (High Distinction)
+
+**Airframe, power and propulsion subsystem work for a quadrotor uncrewed aircraft.**
+
+Project artefacts from EGH450 at the Queensland University of Technology (QUT): the CAD for the
+3D-printed payload and electronics enclosures, the structural analysis project for the airframe,
+and the motor bench test data.
 
 <p align="center">
-  <img 
-    src="https://github.com/user-attachments/assets/ed56d43b-d1c8-477d-8eb3-1ae39d0d7b91" 
-    alt="EGH450 UAV Project Screenshot" 
+  <img
+    src="https://github.com/user-attachments/assets/ed56d43b-d1c8-477d-8eb3-1ae39d0d7b91"
+    alt="EGH450 UAV project"
     width="650"
   />
 </p>
 
+## The aircraft
+
+A quadrotor on carbon-fibre arms with a 3D-printed centre cover. The battery and onboard
+computer hang beneath it in printed honeycomb enclosures, which keep the mass low while leaving
+the electronics ventilated and easy to reach.
+
 <p align="center">
-  <em>Airframe, power, and propulsion subsystem development for an advanced uncrewed aircraft platform.</em>
+  <img src="images/2.jpeg" width="48%" alt="The assembled quadrotor">
+  <img src="images/3.jpeg" width="48%" alt="Battery and electronics enclosures mounted under the airframe">
 </p>
 
----
+## Airframe
 
-## Overview
+The airframe was modelled in Fusion 360 and analysed in ANSYS Workbench (2019 R3) with a static
+structural study and a modal study.
 
-This repository contains my project artefacts for **EGH450 Advanced Uncrewed Aircraft Systems**, focused on the **airframe, power, and propulsion subsystems** of an uncrewed aircraft platform.
+<p align="center">
+  <img src="images/7.png" width="48%" alt="CAD model of the airframe">
+  <img src="images/10.png" width="40%" alt="Top view of the airframe CAD">
+</p>
 
-The project involved UAV subsystem design, structural analysis, CAD modelling, 3D-printable component development, power-system packaging, and motor bench testing.
+| File | Contents |
+| --- | --- |
+| `STATIC TEST.f3d` | Fusion 360 design used for the static test |
+| `Airframe_Analysis.wbpj` | ANSYS Workbench project with the static structural and modal systems |
 
-The aim was to evaluate how mechanical design, onboard power integration, and propulsion performance affect the overall capability of an uncrewed aircraft system.
+Only the Workbench project file is included, not its data folder, so the file records the analysis
+setup but will not reopen the mesh or results on its own.
 
----
+## Power system packaging
 
-## Project Summary
+The battery and Raspberry Pi enclosures were designed for 3D printing, with honeycomb cut-outs
+to save mass and let air through.
 
-Uncrewed Aircraft Systems require the integration of multiple engineering domains, including:
+<p align="center">
+  <img src="images/8.png" width="46%" alt="CAD of the honeycomb enclosure">
+  <img src="images/9.png" width="46%" alt="CAD of an enclosure with mounting rails">
+</p>
 
-* Aerospace structures
-* Propulsion systems
-* Power electronics
-* Embedded systems
-* Autonomous-system hardware
-* Mechanical packaging
-* Physical prototyping
+<p align="center">
+  <img src="images/4.jpeg" width="48%" alt="Printed battery enclosure with the battery strapped in">
+  <img src="images/5.jpeg" width="48%" alt="Printed enclosure fitted to the airframe">
+</p>
 
-My work focused on three major subsystem areas:
+| File | Overall size (mm) | Contents |
+| --- | --- | --- |
+| `battery_case.stl` | 244 × 172 × 92 | Battery enclosure |
+| `pi_case.stl` | 310 × 260 × 108 | Raspberry Pi case |
+| `raspberry_pi_case.stl` | 310 × 260 × 108 | Alternative version of the Raspberry Pi case |
+| `final.stl` | 310 × 260 × 108 | Final version of the same model |
+| `3D_Print.stl` | 102 × 158 × 114 | Printable component |
 
-1. **Airframe Design**
-2. **Power System Integration**
-3. **Propulsion System Testing**
+Sizes are the bounding box of each mesh.
 
-These areas directly influence UAV mass, endurance, stability, payload integration, manufacturability, and mission performance.
+## Propulsion: motor bench test
 
----
+`Motor_bench_test.xls` is a stepped throttle test of one motor and propeller on a thrust stand,
+recorded on 23 April 2025. The ESC signal was stepped from 900 µs to 2100 µs in 100 µs steps,
+holding each step for 3.5 s, and the sweep was repeated three times from a 12 V supply. The log
+records thrust, torque, voltage, current, electrical power and vibration.
 
-## Repository Contents
+Averages across the three sweeps:
 
-```text
-EGH450-Advanced-Uncrewed-Aircraft-Systems/
-│
-├── images/
-│   └── Project images, renders, and supporting visuals
-│
-├── 3D_Print.stl
-├── final.stl
-├── battery_case.stl
-├── pi_case.stl
-├── raspberry_pi_case.stl
-│
-├── STATIC TEST.f3d
-├── Airframe_Analysis.wbpj
-├── Motor_bench_test.xls
-│
-└── README.md
-```
+| ESC signal (µs) | Thrust (kgf) | Current (A) | Electrical power (W) | Thrust per watt (gf/W) |
+| ---: | ---: | ---: | ---: | ---: |
+| 1200 | 0.05 | 0.28 | 3.4 | 15.2 |
+| 1400 | 0.18 | 1.31 | 15.8 | 11.1 |
+| 1600 | 0.37 | 3.47 | 41.8 | 8.8 |
+| 1800 | 0.61 | 7.10 | 85.1 | 7.2 |
+| 2000 | 0.85 | 11.77 | 139.9 | 6.1 |
 
----
+What the data shows:
 
-## Project Focus Areas
+- **Peak thrust is about 0.85 kgf per motor**, or roughly 3.4 kgf across four motors at this supply voltage.
+- **The ESC saturates at 2000 µs.** The 2100 µs step produces the same thrust and current.
+- **Efficiency falls as throttle rises**, from about 15 gf/W near idle to 6 gf/W at full throttle, so hovering well below full throttle is what buys endurance.
+- **The three sweeps repeat closely**, with peak thrust within 0.005 kgf of each other.
+- Supply voltage sags from 12.1 V to 11.9 V at full current. The two motor speed columns were not recorded and read zero.
 
-### 1. Airframe Design
+## How the subsystems tie together
 
-The airframe is the primary structural foundation of the UAV. It determines how the propulsion system, battery system, avionics, payload, and supporting hardware are physically arranged and supported.
+The three areas constrain each other. Airframe and enclosure mass sets the thrust the motors
+must produce to hover. The bench test shows how much current that thrust costs, and that current
+sets how long a given battery lasts. A bigger battery adds endurance but also mass, which pushes
+the hover point further up the less efficient end of the thrust curve.
 
-My airframe work focused on structural layout, component packaging, manufacturability, and mechanical integration.
+## Tools
 
-#### Key Considerations
-
-* UAV structural layout
-* Component placement
-* Centre of gravity considerations
-* Battery and electronics mounting
-* Propulsion mounting requirements
-* Manufacturability
-* 3D-printable component design
-* Structural stiffness and mechanical suitability
-* Weight distribution
-* Practical assembly constraints
-
-#### Relevant Files
-
-| File                     | Description                               |
-| ------------------------ | ----------------------------------------- |
-| `3D_Print.stl`           | 3D-printable UAV component model          |
-| `final.stl`              | Finalised 3D model component              |
-| `STATIC TEST.f3d`        | Fusion 360 static test / CAD design file  |
-| `Airframe_Analysis.wbpj` | ANSYS Workbench airframe analysis project |
-
----
-
-### 2. Power System Integration
-
-The power system is responsible for supplying energy to the UAV propulsion system, onboard computer, sensors, communication modules, and supporting electronics.
-
-For this project, the power-system work focused on the physical packaging and integration of onboard electrical components, especially the battery and Raspberry Pi enclosure.
-
-#### Key Considerations
-
-* Battery enclosure design
-* Electrical hardware packaging
-* Onboard computer protection
-* Power-system accessibility
-* Mechanical protection of electronics
-* Integration with the airframe
-* Weight and volume trade-offs
-* Safe component mounting
-* Maintainability
-
-#### Relevant Files
-
-| File                    | Description                              |
-| ----------------------- | ---------------------------------------- |
-| `battery_case.stl`      | 3D-printable battery enclosure           |
-| `pi_case.stl`           | Onboard computer / Raspberry Pi case     |
-| `raspberry_pi_case.stl` | Alternative Raspberry Pi enclosure model |
-
----
-
-### 3. Propulsion System Testing
-
-The propulsion system provides the thrust required for UAV flight. Propulsion performance directly affects take-off capability, climb rate, cruise efficiency, endurance, and payload capacity.
-
-The propulsion component of this project involved motor bench testing and performance evaluation.
-
-#### Key Considerations
-
-* Motor performance
-* Propeller suitability
-* Thrust generation
-* Power draw
-* Motor efficiency
-* Electrical load
-* Propulsion-to-weight relationship
-* Bench test data collection
-* Propulsion-system suitability for UAV operation
-
-#### Relevant Files
-
-| File                   | Description                                              |
-| ---------------------- | -------------------------------------------------------- |
-| `Motor_bench_test.xls` | Motor bench test data and propulsion performance results |
-
----
-
-## System-Level Integration
-
-The airframe, power system, and propulsion system are tightly coupled. A UAV cannot be designed by treating these subsystems independently.
-
-```text
-Airframe Geometry
-      ↓
-Structural Mass and Component Layout
-      ↓
-Battery and Electronics Placement
-      ↓
-Centre of Gravity and Weight Distribution
-      ↓
-Required Thrust and Power
-      ↓
-Motor and Propeller Performance
-      ↓
-Flight Endurance and Mission Capability
-```
-
-A heavier airframe increases thrust demand. A larger battery can increase endurance, but also increases aircraft mass. A more powerful propulsion system can improve thrust capability, but may increase current draw and reduce flight time.
-
-The final UAV design must therefore balance structure, power, propulsion, and mission requirements.
-
----
-
-## Engineering Trade-Offs
-
-| Design Area           | Trade-Off                                   |
-| --------------------- | ------------------------------------------- |
-| Airframe              | Structural strength vs weight               |
-| Battery System        | Energy capacity vs mass                     |
-| Propulsion            | Thrust capability vs efficiency             |
-| Electronics Packaging | Protection vs accessibility                 |
-| 3D Printing           | Manufacturability vs structural performance |
-| Component Layout      | Compact packaging vs maintainability        |
-| System Integration    | Performance vs complexity                   |
-
----
-
-## Tools Used
-
-| Tool            | Purpose                                        |
-| --------------- | ---------------------------------------------- |
-| Fusion 360      | CAD modelling and static design work           |
-| ANSYS Workbench | Airframe structural analysis                   |
-| Microsoft Excel | Motor bench test data analysis                 |
-| STL File Format | 3D-printable component models                  |
-| 3D Printing     | Physical prototyping and component fabrication |
-
----
-
-## Skills Demonstrated
-
-This project demonstrates capability in:
-
-* UAV airframe design
-* Aerospace subsystem integration
-* Power-system packaging
-* Propulsion testing
-* Motor bench test analysis
-* CAD modelling
-* 3D-printable component design
-* Static structural analysis
-* Mechanical prototyping
-* Engineering documentation
-* Design trade-off evaluation
-* Autonomous aircraft hardware integration
-
----
-
-## Applications
-
-The engineering principles demonstrated in this project apply to:
-
-* Autonomous UAVs
-* Small uncrewed aircraft
-* Electric aircraft platforms
-* Remote sensing UAVs
-* Search and rescue drones
-* Infrastructure inspection drones
-* Aerospace robotics
-* Experimental flight vehicles
-* Embedded autonomy platforms
-
----
+| Tool | Used for |
+| --- | --- |
+| Fusion 360 | CAD of the airframe and enclosures |
+| ANSYS Workbench | Static structural and modal analysis |
+| 3D printing | Enclosures and airframe parts |
+| Thrust stand and Excel | Motor bench testing and data |
 
 ## Author
 
 **Chabod Masere**
 
-🎓 **Bachelor of Engineering, Electrical & Aerospace**
-🎓 **Master of Robotics and Artificial Intelligence**
-
----
-
-## Portfolio Context
-
-This project forms part of my broader engineering portfolio across:
-
-* Aerospace systems
-* Robotics
-* Autonomous vehicles
-* Electrical systems
-* Physical AI
-* Control and propulsion systems
-* System-level engineering design
+🎓 Master of Robotics and Artificial Intelligence
+<br>
+🎓 Bachelor of Engineering, Electrical & Aerospace
