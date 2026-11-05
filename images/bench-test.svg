@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" role="img" aria-label="Motor bench test: thrust rises from 0.05 to 0.85 kgf while efficiency falls from 15.2 to 6.1 gram-force per watt as the ESC signal goes from 1200 to 2000 microseconds.">
+<style>.t{fill:#1f2328}.m{fill:#59636e}.g{stroke:#d1d9e0}.l{stroke:#b4632f}.d{fill:#b4632f;stroke:#fff}@media (prefers-color-scheme:dark){.t{fill:#f0f6fc}.m{fill:#9198a1}.g{stroke:#3d444d}.l{stroke:#e0975f}.d{fill:#e0975f;stroke:#0d1117}}</style>
+<text class="t" x="62" y="28" font-size="17" font-weight="600">Thrust per motor</text><text class="m" x="62" y="47" font-size="13">kgf, average of three sweeps</text>
+<line class="g" x1="62" x2="402" y1="282.0" y2="282.0" stroke-width="1"/><text class="m" x="54" y="286.0" font-size="12" text-anchor="end">0</text>
+<line class="g" x1="62" x2="402" y1="227.0" y2="227.0" stroke-width="1"/><text class="m" x="54" y="231.0" font-size="12" text-anchor="end">0.25</text>
+<line class="g" x1="62" x2="402" y1="172.0" y2="172.0" stroke-width="1"/><text class="m" x="54" y="176.0" font-size="12" text-anchor="end">0.5</text>
+<line class="g" x1="62" x2="402" y1="117.0" y2="117.0" stroke-width="1"/><text class="m" x="54" y="121.0" font-size="12" text-anchor="end">0.75</text>
+<line class="g" x1="62" x2="402" y1="62.0" y2="62.0" stroke-width="1"/><text class="m" x="54" y="66.0" font-size="12" text-anchor="end">1</text>
+<text class="m" x="62.0" y="302" font-size="12" text-anchor="middle">1200</text>
+<text class="m" x="147.0" y="302" font-size="12" text-anchor="middle">1400</text>
+<text class="m" x="232.0" y="302" font-size="12" text-anchor="middle">1600</text>
+<text class="m" x="317.0" y="302" font-size="12" text-anchor="middle">1800</text>
+<text class="m" x="402.0" y="302" font-size="12" text-anchor="middle">2000</text>
+<text class="m" x="232.0" y="324" font-size="12" text-anchor="middle">ESC signal (µs)</text>
+<polyline class="l" points="62.0,271.0 147.0,242.4 232.0,200.6 317.0,147.8 402.0,95.0" fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="d" cx="62.0" cy="271.0" r="5" stroke-width="2"/>
+<text class="t" x="62.0" y="259.0" font-size="13" font-weight="600" text-anchor="start">0.05</text>
+<circle class="d" cx="147.0" cy="242.4" r="5" stroke-width="2"/>
+<circle class="d" cx="232.0" cy="200.6" r="5" stroke-width="2"/>
+<circle class="d" cx="317.0" cy="147.8" r="5" stroke-width="2"/>
+<circle class="d" cx="402.0" cy="95.0" r="5" stroke-width="2"/>
+<text class="t" x="402.0" y="83.0" font-size="13" font-weight="600" text-anchor="end">0.85</text>
+<text class="t" x="492" y="28" font-size="17" font-weight="600">Efficiency</text><text class="m" x="492" y="47" font-size="13">gf/W, average of three sweeps</text>
+<line class="g" x1="492" x2="832" y1="282.0" y2="282.0" stroke-width="1"/><text class="m" x="484" y="286.0" font-size="12" text-anchor="end">0</text>
+<line class="g" x1="492" x2="832" y1="227.0" y2="227.0" stroke-width="1"/><text class="m" x="484" y="231.0" font-size="12" text-anchor="end">5</text>
+<line class="g" x1="492" x2="832" y1="172.0" y2="172.0" stroke-width="1"/><text class="m" x="484" y="176.0" font-size="12" text-anchor="end">10</text>
+<line class="g" x1="492" x2="832" y1="117.0" y2="117.0" stroke-width="1"/><text class="m" x="484" y="121.0" font-size="12" text-anchor="end">15</text>
+<line class="g" x1="492" x2="832" y1="62.0" y2="62.0" stroke-width="1"/><text class="m" x="484" y="66.0" font-size="12" text-anchor="end">20</text>
+<text class="m" x="492.0" y="302" font-size="12" text-anchor="middle">1200</text>
+<text class="m" x="577.0" y="302" font-size="12" text-anchor="middle">1400</text>
+<text class="m" x="662.0" y="302" font-size="12" text-anchor="middle">1600</text>
+<text class="m" x="747.0" y="302" font-size="12" text-anchor="middle">1800</text>
+<text class="m" x="832.0" y="302" font-size="12" text-anchor="middle">2000</text>
+<text class="m" x="662.0" y="324" font-size="12" text-anchor="middle">ESC signal (µs)</text>
+<polyline class="l" points="492.0,114.8 577.0,159.9 662.0,185.2 747.0,202.8 832.0,214.9" fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle class="d" cx="492.0" cy="114.8" r="5" stroke-width="2"/>
+<text class="t" x="492.0" y="102.8" font-size="13" font-weight="600" text-anchor="start">15.2</text>
+<circle class="d" cx="577.0" cy="159.9" r="5" stroke-width="2"/>
+<circle class="d" cx="662.0" cy="185.2" r="5" stroke-width="2"/>
+<circle class="d" cx="747.0" cy="202.8" r="5" stroke-width="2"/>
+<circle class="d" cx="832.0" cy="214.9" r="5" stroke-width="2"/>
+<text class="t" x="832.0" y="202.9" font-size="13" font-weight="600" text-anchor="end">6.1</text>
+</svg>
