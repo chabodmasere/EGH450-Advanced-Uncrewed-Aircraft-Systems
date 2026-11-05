@@ -96,9 +96,9 @@ Each STL is a print plate, so most files hold two parts: a long slotted sleeve a
 
 <table>
   <tr>
-    <td align="center"><img src="images/parts/battery_case.gif" width="260" alt="Rotating model of battery_case.stl"></td>
-    <td align="center"><img src="images/parts/final.gif" width="260" alt="Rotating model of final.stl"></td>
-    <td align="center"><img src="images/parts/3D_Print.gif" width="260" alt="Rotating model of 3D_Print.stl"></td>
+    <td width="33%" align="center"><img src="images/parts/battery_case.gif" width="100%" alt="Rotating model of battery_case.stl"></td>
+    <td width="33%" align="center"><img src="images/parts/final.gif" width="100%" alt="Rotating model of final.stl"></td>
+    <td width="33%" align="center"><img src="images/parts/3D_Print.gif" width="100%" alt="Rotating model of 3D_Print.stl"></td>
   </tr>
   <tr>
     <td align="center"><code>battery_case.stl</code><br><sub>Slotted sleeve and closed-wall box</sub></td>
@@ -176,9 +176,9 @@ Every choice here feeds back into the others: a bigger battery adds endurance, b
 
 ```mermaid
 flowchart LR
-    A["Airframe and enclosure mass"] --> B["Thrust needed to hover"]
-    B --> C["Current draw, from the bench test"]
-    C --> D["Endurance for a given battery"]
+    A["Mass"] --> B["Hover thrust"]
+    B --> C["Current draw"]
+    C --> D["Endurance"]
     D --> E["Battery size"]
     E -->|"more mass"| A
 ```
